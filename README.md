@@ -9,17 +9,6 @@
 - 👨‍🎓 Cursando Engenharia da Computação IFPB-CG.
 
 <div>
-
-##
-
-##### 🤖 Minha atividade no GitHub
-  
-<div>
-    <div>  
-     <a href="https://github.com/matheuscarne">
-     <img height="200em" src="https://github-readme-stats.vercel.app/api?username=matheuscarne&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
-    </div>
-</div>
  
  ##
  
