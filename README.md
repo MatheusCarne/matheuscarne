@@ -1,7 +1,5 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
 
- #
-        matheusportfolio.me
 ### Sou um estudante de programação que ama técnologia!
 
 - 🎂 22 Anos
@@ -10,15 +8,6 @@
 
 <div>
  
- ##
- 
- ##### 🤖 Minha atividade no GitHub
-  
-<div style="display: inline_block;" align="center">
-  <img height="140em" src="https://github-readme-streak-stats.herokuapp.com/?user=matheuscarne&hide_border=true&theme=react" />
-  <img height="140em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=matheuscarne&layout=compact&langs_count=7&theme=react&border_radius=4&hide_border=true"/>
-</div>
-  
  ##
  
  ##### 🧠 Skills set
@@ -54,6 +43,15 @@
    </table>
   </div>
  
+ ##
+ 
+  ##### 🤖 Minha atividade no GitHub
+  
+<div style="display: inline_block;" align="center">
+  <img height="140em" src="https://github-readme-streak-stats.herokuapp.com/?user=matheuscarne&hide_border=true&theme=react" />
+  <img height="140em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=matheuscarne&layout=compact&langs_count=7&theme=react&border_radius=4&hide_border=true"/>
+</div>
+  
  ##
  
   ##### 💬 Meus contatos
