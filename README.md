@@ -5,8 +5,6 @@
 - 🎂 22 Anos
 - ❤️ Gosto de Front-end e Back-end.
 - 👨‍🎓 Cursando Engenharia da Computação IFPB-CG.
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=MatheusCarne&label=Profile%20views&color=0e75b6&style=flat" alt="MatheusCarne" /> </p>
-
 <div>
  
  ##
