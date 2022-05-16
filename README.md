@@ -1,6 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
 
-<img align="right" src="https://c.tenor.com/hmDMrE1yMAkAAAAC/when-the-coding-when-the.gif" width="350">
+<img align="right" src="https://c.tenor.com/hmDMrE1yMAkAAAAC/when-the-coding-when-the.gif" width="300">
 
 ### Sou um estudante de programação que ama técnologia!
 
@@ -12,14 +12,12 @@
 - 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress.
 - ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online.
 <br>
-<br>
-<br>
 
 <div>
  
  ##
+ <h3 align="center"> 🧠 Skills set </h3>
  
- ##### 🧠 Skills set
  
  <div style="display: inline_block;" align="center">
    <table>
@@ -57,8 +55,8 @@
   </div>
  
  ##
+  <h3 align="center"> 🤖 Minha atividade no GitHub </h3>
  
-  ##### 🤖 Minha atividade no GitHub
   
 <div style="display: inline_block;" align="center">
   <img height="140em" src="https://github-readme-streak-stats.herokuapp.com/?user=matheuscarne&hide_border=true&theme=react" />
@@ -66,8 +64,8 @@
 </div>
   
  ##
- 
-  ##### 💬 Meus contatos
+ <h3 align="center"> 💬 Meus contatos </h3>
+  
   
   <div style="display: inline_block;" align="center"> 
   <a href="https://api.whatsapp.com/send?phone=5583999264236&text=Whatsapp%20de%20Matheus%20Carneiro%20da%20Cunha" target="_blank"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" target="_blank"></a>
@@ -76,10 +74,11 @@
  	<a href="https://www.facebook.com/matheus.carne.cunha" target="_blank"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" target="_blank"></a>
  <a href="https://twitter.com/twt_matheus" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" target="_blank"></a> 
   <a href="https://www.linkedin.com/in/matheuscarne/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
- </div>
+ 
 
- #    
- ##### 👨‍💻 Commits 
+ #
+ <h3 align="center"> 👨‍💻 Commits </h3>
+ 
 ![Snake animation](https://github.com/matheuscarne/matheuscarne/blob/output/github-contribution-grid-snake.svg)
  
         matheus.cunha@academico.ifpb.edu.br
