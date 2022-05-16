@@ -12,6 +12,7 @@
 - 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress.
 - ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online.
 <br>
+<br>
 
 <div>
  
