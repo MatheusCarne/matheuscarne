@@ -1,6 +1,5 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
 
-<img align="right" src="https://c.tenor.com/hmDMrE1yMAkAAAAC/when-the-coding-when-the.gif" width="300">
 
 ### Sou um estudante de programação que ama técnologia!
 
@@ -11,8 +10,6 @@
 - 👨‍💻 Programo usando linguagens Python, C e C++.
 - 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress.
 - ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online.
-<br>
-<br>
 
 <div>
  
