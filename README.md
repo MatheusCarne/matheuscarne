@@ -1,7 +1,7 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
 
 ![Profile views](https://gpvc.arturio.dev/matheuscarne)  
-### <a href='https://github.com/pricing'><img src='https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/pro.gif' width='40' height='40'></a> Sou um estudante de programação que ama técnologia! 
+### Sou um estudante de programação que ama técnologia! 
 
 - 🎂 22 Anos
 - ❤️ Gosto de Front-end e Back-end.
