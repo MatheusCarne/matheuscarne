@@ -75,10 +75,6 @@
  
 
  #
-   
- <h3 align="center"> 👨‍💻 Commits </h3>
- 
-![Snake animation](https://github.com/matheuscarne/matheuscarne/blob/output/github-contribution-grid-snake.svg)
  
         matheus.cunha@academico.ifpb.edu.br
   
