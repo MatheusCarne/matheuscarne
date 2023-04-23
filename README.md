@@ -3,13 +3,20 @@
 ![Profile views](https://gpvc.arturio.dev/matheuscarne)  
 ### Sou um estudante de programação que ama técnologia! 
 
-- 🎂 22 Anos
-- ❤️ Gosto de Front-end e Back-end.
-- 🎓 Cursando Engenharia da Computação IFPB-CG.
-- 😎 Desenvolvo pequenos projetos utilizando apenas HTML, CSS e JavaScript.
-- 👨‍💻 Programo usando linguagens Python, C e C++.
-- 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress.
-- ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online.
+<details>
+<summary>Sobre mim</summary>
+
+- 🎂 23 Anos;
+- ❤️ Gosto de Front-end e Back-end;
+- 🎓 Cursando Engenharia da Computação IFPB-CG;
+- 😎 Desenvolvo pequenos projetos utilizando apenas HTML, CSS e JavaScript;
+- 👨‍💻 Programo usando linguagens Python, C e C++;
+- 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress;
+- ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online;
+- 🤯 Gosto de resolver problemas complexos;
+- 😉 Estou procurando maneiras de me aperfeiçoar e aprender novas habilidades;
+- 💼 Sou proativo e gosto de trabalhar em equipe;
+</details>
 
 <div>
  
