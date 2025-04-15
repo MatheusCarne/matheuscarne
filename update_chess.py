@@ -1,43 +1,56 @@
 import requests
+import json
 
-USERNAME = "Matheus_Carne"  # Substitua aqui
-README_PATH = "README.md"
-
-def get_ratings(username):
-    url = f"https://api.chess.com/pub/player/{username}/stats"
+# Pegando os dados históricos de rating (exemplo de resposta JSON do Chess.com)
+def get_historical_ratings(Matheus_Carne):
+    url = f"https://api.chess.com/pub/player/{matheus_Carne}/games"
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception("Erro ao buscar dados do Chess.com")
-    data = response.json()
-    return {
-        "bullet": data["chess_bullet"]["last"]["rating"],
-        "blitz": data["chess_blitz"]["last"]["rating"],
-        "rapid": data["chess_rapid"]["last"]["rating"],
-    }
-
-def update_readme(ratings):
-    with open(README_PATH, "r", encoding="utf-8") as file:
-        content = file.read()
-
-    new_section = f"""
-### ♟️ Meu rating no Chess.com
-- Bullet: {ratings['bullet']}
-- Blitz: {ratings['blitz']}
-- Rapid: {ratings['rapid']}
-""".strip()
-
-    start = "<!--chess-start-->"
-    end = "<!--chess-end-->"
-    updated = f"{start}\n{new_section}\n{end}"
     
-    if start in content and end in content:
-        content = content.split(start)[0] + updated + content.split(end)[1]
-    else:
-        content += f"\n\n{updated}"
+    data = response.json()
+    ratings = {"bullet": [], "blitz": [], "rapid": []}
+    
+    # Exemplo fictício de como pegar a evolução
+    for game in data["games"]:
+        ratings["bullet"].append(game["rating"])
+    
+    return ratings
 
-    with open(README_PATH, "w", encoding="utf-8") as file:
-        file.write(content)
+# Gerar a URL do gráfico
+def generate_chart_url(ratings):
+    chart_data = {
+        "type": "line",
+        "data": {
+            "labels": ["Jan", "Feb", "Mar"],  # Substituir com as datas reais
+            "datasets": [
+                {
+                    "label": "Bullet",
+                    "data": ratings["bullet"],
+                    "fill": False,
+                    "borderColor": "rgba(75,192,192,1)"
+                },
+                {
+                    "label": "Blitz",
+                    "data": ratings["blitz"],
+                    "fill": False,
+                    "borderColor": "rgba(153,102,255,1)"
+                },
+                {
+                    "label": "Rapid",
+                    "data": ratings["rapid"],
+                    "fill": False,
+                    "borderColor": "rgba(255,159,64,1)"
+                }
+            ]
+        }
+    }
+    
+    chart_url = f"https://quickchart.io/chart?c={json.dumps(chart_data)}"
+    return chart_url
 
-if __name__ == "__main__":
-    ratings = get_ratings(USERNAME)
-    update_readme(ratings)
+# Exemplo de uso
+username = "Matheus_Carne"
+ratings = get_historical_ratings(username)
+chart_url = generate_chart_url(ratings)
+print(chart_url)
