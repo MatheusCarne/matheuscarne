@@ -1,6 +1,6 @@
 import requests
 
-USERNAME = "SEU_USUARIO_CHESS"  # Substitua aqui
+USERNAME = "Matheus_Carne"  # Substitua aqui
 README_PATH = "README.md"
 
 def get_ratings(username):
