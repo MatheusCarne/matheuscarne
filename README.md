@@ -1,5 +1,8 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
- 
+
+ ![Profile views](https://komarev.com/ghpvc/?username=MatheusCarne&color=blue)
+
+
 ### Sou um estudante de programação que ama técnologia! 
 
 <details>
