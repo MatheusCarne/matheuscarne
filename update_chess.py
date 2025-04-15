@@ -3,19 +3,20 @@ import json
 
 # Pegando os dados históricos de rating do Chess.com
 def get_historical_ratings(username):
-    url = f"https://api.chess.com/pub/player/{username}/games"
+    url = f"https://api.chess.com/pub/player/{username}/rating"
     response = requests.get(url)
     if response.status_code != 200:
-        raise Exception("Erro ao buscar dados do Chess.com")
+        raise Exception(f"Erro ao buscar dados do Chess.com: {response.text}")
     
     data = response.json()
-    ratings = {"bullet": [], "blitz": [], "rapid": []}
-    
-    # Exemplo fictício de como pegar a evolução
-    for game in data["games"]:
-        ratings["bullet"].append(game["rating"])
-    
+    # Ajuste o tratamento dos dados de acordo com a estrutura da resposta
+    ratings = {
+        "bullet": [data.get('bullet', {}).get('rating', 0)],
+        "blitz": [data.get('blitz', {}).get('rating', 0)],
+        "rapid": [data.get('rapid', {}).get('rating', 0)],
+    }
     return ratings
+
 
 # Gerar a URL do gráfico para o QuickChart
 def generate_chart_url(ratings):
