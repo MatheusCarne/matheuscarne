@@ -103,7 +103,14 @@
   
 </div>
 
-### ♟️ Meu rating no Chess.com
-![Rating Chess.com](https://quickchart.io/chart?c={chart_data})
-
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
+
+# Meu Gráfico de Rating Rápido
+
+Este gráfico mostra o histórico do meu rating em partidas rápidas no Chess.com.
+
+```bash
+<gráfico gerado automaticamente aqui>
+
+
+
