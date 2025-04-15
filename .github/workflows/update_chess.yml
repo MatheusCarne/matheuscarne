@@ -1,0 +1,32 @@
+name: Atualizar Chess.com Ratings
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Executa diariamente à meia-noite UTC
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Instalar dependências
+        run: pip install requests
+
+      - name: Rodar script
+        run: python update_chess.py
+
+      - name: Commit e push se houver alterações
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Atualiza rating do Chess.com"
+          git push
