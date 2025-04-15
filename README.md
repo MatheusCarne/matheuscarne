@@ -79,7 +79,7 @@
 <details>
 <summary>Minha atividade no GitHub</summary>
 <div style="display: inline_block;" align="center">
-  <img height="140em" src="https://github-readme-streak-stats.herokuapp.com/?user=matheuscarne&hide_border=true&theme=react" />
+  <img height="140em" src="https://github-readme-stats.vercel.app/api/?username=matheuscarne&hide_border=true&theme=react" />
   <img height="140em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=matheuscarne&layout=compact&langs_count=7&theme=react&border_radius=4&hide_border=true"/>
 </div>
 </details>
