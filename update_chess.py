@@ -1,9 +1,9 @@
 import requests
 import json
 
-# Pegando os dados históricos de rating (exemplo de resposta JSON do Chess.com)
-def get_historical_ratings(Matheus_Carne):
-    url = f"https://api.chess.com/pub/player/{matheus_Carne}/games"
+# Pegando os dados históricos de rating do Chess.com
+def get_historical_ratings(username):
+    url = f"https://api.chess.com/pub/player/{username}/games"
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception("Erro ao buscar dados do Chess.com")
@@ -17,7 +17,7 @@ def get_historical_ratings(Matheus_Carne):
     
     return ratings
 
-# Gerar a URL do gráfico
+# Gerar a URL do gráfico para o QuickChart
 def generate_chart_url(ratings):
     chart_data = {
         "type": "line",
@@ -50,7 +50,7 @@ def generate_chart_url(ratings):
     return chart_url
 
 # Exemplo de uso
-username = "Matheus_Carne"
+username = "Matheus_Carne"  # Coloque o seu nome de usuário do Chess.com
 ratings = get_historical_ratings(username)
 chart_url = generate_chart_url(ratings)
 print(chart_url)
