@@ -104,7 +104,6 @@
 </div>
 
 ### ♟️ Meu rating no Chess.com
-<!--chess-start-->
-<!--chess-end-->
+![Rating Chess.com](https://quickchart.io/chart?c={chart_data})
 
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
