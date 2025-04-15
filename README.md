@@ -106,5 +106,7 @@
 ### ♟️ Meu rating no Chess.com
 -  ![rapid](https://img.shields.io/badge/dynamic/json?label=Rapid&query=$.chess_rapid.last.rating&url=https://api.chess.com/pub/player/Matheus_Carne/stats)
 
+<!--chess-start-->
+<!--chess-end-->
 
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
