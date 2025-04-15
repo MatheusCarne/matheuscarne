@@ -10,7 +10,7 @@ USERNAME = 'Matheus_Carne'
 TIME_CLASS = 'rapid'
 RULES = 'chess' #chess960 and other variants possible here
 NGAMES = 100
-headers = {"User-Agent": "ChessRatingRefresh/1.0 aditya.pal.science@gmail.com"}
+headers = {"User-Agent": "ChessRatingRefresh/1.0 aditya.pal.matthsanrem@gmail.com"}
 ARCHIVES_URL = 'https://api.chess.com/pub/player/{user}/games/archives'
 
 def get_archives() -> list:
