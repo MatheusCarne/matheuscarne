@@ -47,7 +47,7 @@ jobs:
           if [ ! -f scripts/ratings.json ]; then
             echo '{"history": []}' > scripts/ratings.json
           fi
-
+          
       - name: Update ratings.json
         run: |
           # Executa o script de fetch de rating para atualizar o ratings.json
@@ -57,6 +57,6 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md ratings.json  # Certifique-se de adicionar o ratings.json
+          git add scripts/ratings.json README.md  # Certifique-se de adicionar o ratings.json
           git commit -m "📊 Auto-update chess rating chart and ratings.json [skip ci]"
           git push
