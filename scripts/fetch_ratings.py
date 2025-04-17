@@ -16,7 +16,7 @@ def get_current_rating():
         response.raise_for_status()  # Lança erro se status != 200
         
         data = response.json()
-        rating = data["stats"][RATING_TYPE]["last"]["rating"]
+        rating = data[f"chess_{RATING_TYPE}"]["last"]["rating"]
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         return {
