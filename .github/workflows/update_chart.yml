@@ -42,10 +42,15 @@ jobs:
           # Escreve o novo conteúdo
           echo "$UPDATED_CONTENT" > README.md
 
+      - name: Update ratings.json
+        run: |
+          # Executa o script de fetch de rating para atualizar o ratings.json
+          python scripts/fetch_ratings.py
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "📊 Auto-update chess rating chart [skip ci]"
+          git add README.md ratings.json  # Certifique-se de adicionar o ratings.json
+          git commit -m "📊 Auto-update chess rating chart and ratings.json [skip ci]"
           git push
