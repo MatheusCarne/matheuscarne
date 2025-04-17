@@ -1,72 +1,59 @@
 #!/usr/bin/env python3
-import requests
-import json
-import os
+import asciichartpy as acp
+import re
 from datetime import datetime
+from fetch_ratings import load_history
+import os
 
 # Configurações
-USERNAME = "Matheus_Carne"  # Substitua pelo seu username
-RATING_TYPE = "rapid"  # rapid, blitz ou bullet
+USERNAME = "Matheus_Carne"
+RATING_TYPE = "rapid"       # "blitz", "bullet", etc.
+MAX_POINTS = 20              # Número máximo de ratings no gráfico
+# Arquivo de histórico
+
+# Regex para remover códigos ANSI
+ANSI_ESCAPE = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
+
 HISTORY_FILE = os.path.join(os.path.dirname(__file__), "ratings.json")
 
-def get_current_rating():
-    """Busca o rating atual da API do Chess.com"""
-    url = f"https://api.chess.com/pub/player/{USERNAME}/stats"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GitHubActionsBot/1.0"
+
+def generate_chart():
+    # Carrega o histórico
+    history = load_history().get("history", [])
+    if not history:
+        return "⚠️ Nenhum dado de rating encontrado. Execute o workflow primeiro."
+
+    # Prepara os dados para o gráfico (últimos MAX_POINTS ratings)
+    ratings = [entry["rating"] for entry in history][-MAX_POINTS:]
+    # Configurações do gráfico ASCII sem cores ANSI
+    config = {
+        "height": 15,               # Altura do gráfico
+        "format": "{:8.2f} ┤",    # Formato dos valores Y
+        "offset": 3                 # Espaçamento lateral
     }
-    try:
-        resp = requests.get(url, headers=headers, timeout=10)
-        resp.raise_for_status()
-    except requests.RequestException as e:
-        print(f"❌ Request failed: {e}")
-        return None
 
-    try:
-        data = resp.json()
-    except json.JSONDecodeError:
-        print(f"❌ Response was not JSON: {resp.text[:200]!r}")
-        return None
+    # Gera o gráfico sem especificar cores (usa padrão sem ANSI)
+    chart = acp.plot(ratings, config)
 
-    stats_key = f"chess_{RATING_TYPE}"
-    node = data.get(stats_key)
-    if not node or "last" not in node:
-        print(f"❌ '{stats_key}' not found in response; available keys: {list(data.keys())}")
-        return None
+    # Remove qualquer código ANSI
+    chart = ANSI_ESCAPE.sub('', chart)
 
-    rating = node["last"].get("rating")
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"✅ API returned rating {rating} for {stats_key} at {timestamp}")
-    return {"rating": rating, "timestamp": timestamp}
+    # Rótulos personalizados
+    min_rating = min(ratings)
+    max_rating = max(ratings)
+    last_update = history[-1]["timestamp"]
 
-def load_history():
-    if os.path.exists(HISTORY_FILE):
-        try:
-            with open(HISTORY_FILE, "r") as f:
-                data = json.load(f)
-        except Exception as e:
-            print(f"⚠️ Failed loading history ({e}), reinitializing.")
-            data = {"history": []}
-        if not isinstance(data.get("history"), list):
-            data["history"] = []
-        return data
-    return {"history": []}
+    # Componente do gráfico em Markdown preservando novas linhas
+    return (
+        f"# ♟ Chess.com {RATING_TYPE.capitalize()} Rating - @{USERNAME}\n\n"
+        f"Última atualização: {last_update}\n"
+        f"Rating mínimo: {min_rating}\n"
+        f"Rating máximo: {max_rating}\n\n"
+        f"```
+{chart}```"
+    )
 
-def save_history(entry):
-    history = load_history()
-    history["history"].append(entry)
-    history["history"] = history["history"][-30:]
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history, f, indent=2)
-    print(f"💾 Saved to {HISTORY_FILE}")
 
 if __name__ == "__main__":
-    current = get_current_rating()
-    if current:
-        save_history(current)
-        print(current["rating"])
-    else:
-        hist = load_history().get("history", [])
-        fallback = hist[-1]["rating"] if hist else 0
-        print(f"⚠️ Using fallback rating: {fallback}")
-        print(fallback)
+    # Imprime o gráfico completo
+    print(generate_chart())
