@@ -8,7 +8,6 @@ import os
 USERNAME = "Matheus_Carne"
 RATING_TYPE = "rapid"
 MAX_POINTS = 20
-COLOR = acp.green
 
 def generate_chart():
     history = load_history().get("history", [])
@@ -19,9 +18,10 @@ def generate_chart():
     ratings = [entry["rating"] for entry in history][-MAX_POINTS:]
     timestamps = [entry["timestamp"] for entry in history][-MAX_POINTS:]
     
+    # Remover a cor (sem cor agora)
     config = {
         "height": 15,
-        "colors": [COLOR],
+        "colors": [],  # Sem cor
         "format": "{:8.2f} ┤",
         "offset": 3
     }
