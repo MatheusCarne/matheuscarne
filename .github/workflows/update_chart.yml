@@ -57,6 +57,6 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/ratings.json README.md  # Certifique-se de adicionar o ratings.json
+          git add README.md scripts/ratings.json  # Certifique-se de adicionar o ratings.json
           git commit -m "📊 Auto-update chess rating chart and ratings.json [skip ci]"
           git push
