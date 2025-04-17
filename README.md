@@ -105,13 +105,6 @@
 ### ♟️ Meu Progresso no Chess.com
 <!-- CHESS_CHART_START -->
 
-# ♟ Chess.com Rapid Rating - @Matheus_Carne
-
-Última atualização: 2025-04-17 14:29:51
-Rating mínimo: 435
-Rating máximo: 435
-
-  435.00 ┤ ┼[32m─[0m
 <!-- CHESS_CHART_END -->
 
 
