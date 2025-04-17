@@ -105,7 +105,14 @@
 ### ♟️ Meu Progresso no Chess.com
 <!-- CHESS_CHART_START -->
 
+Última atualização: 2025-04-17 15:20:20
+Rating mínimo: 435
+Rating máximo: 435
+
+  435.00 ┤ ┼────
 <!-- CHESS_CHART_END -->
+
+
 
 
 
