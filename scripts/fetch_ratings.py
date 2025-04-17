@@ -6,7 +6,7 @@ from datetime import datetime
 # Configurações
 USERNAME = "Matheus_Carne"  # 👈 Substitua pelo seu username
 RATING_TYPE = "rapid"       # Pode ser "blitz" ou "bullet"
-HISTORY_FILE = "ratings.json"  # Arquivo para armazenar histórico
+HISTORY_FILE = "scripts/ratings.json"  # Arquivo para armazenar histórico
 
 def get_current_rating():
     """Busca o rating atual da API do Chess.com"""
