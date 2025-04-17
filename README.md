@@ -104,7 +104,9 @@
 
 ### ♟️ Meu Progresso no Chess.com
 <!-- CHESS_CHART_START -->
-<!-- O gráfico será atualizado automaticamente aqui -->
+
 <!-- CHESS_CHART_END -->
+<!-- O gráfico será atualizado automaticamente aqui -->
+
 
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
