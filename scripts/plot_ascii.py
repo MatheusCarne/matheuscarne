@@ -2,7 +2,6 @@
 import asciichartpy as acp
 from datetime import datetime
 from fetch_ratings import load_history
-import os
 
 # Configurações
 USERNAME = "Matheus_Carne"
@@ -14,27 +13,31 @@ def generate_chart():
     
     if not history:
         return "⚠️ Nenhum dado de rating encontrado. Execute o workflow primeiro."
-    
+
     ratings = [entry["rating"] for entry in history][-MAX_POINTS:]
     timestamps = [entry["timestamp"] for entry in history][-MAX_POINTS:]
-    
+
+    # REMOVE a cor ANSI aqui
     config = {
-        "height": 10,
+        "height": 15,
         "format": "{:8.2f} ┤",
         "offset": 3
-        # 👇 NÃO incluir "colors" aqui
     }
 
     chart = acp.plot(ratings, config)
-    
     min_rating = min(ratings)
     max_rating = max(ratings)
     last_update = timestamps[-1] if timestamps else datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    return f"""\
+
+    return f"""
 # ♟ Chess.com {RATING_TYPE.capitalize()} Rating - @{USERNAME}
 
-Última atualização: {last_update}
-Rating mínimo: {min_rating}
+Última atualização: {last_update}  
+Rating mínimo: {min_rating}  
 Rating máximo: {max_rating}
 
+{chart}
+"""
+
+if __name__ == "__main__":
+    print(generate_chart())
