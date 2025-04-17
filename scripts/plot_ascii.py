@@ -8,6 +8,8 @@ RATING_TYPE = "rapid"       # "blitz", "bullet", etc.
 MAX_POINTS = 20             # Número máximo de ratings no gráfico
 COLOR = acp.green           # Cores disponíveis: green, blue, red, yellow, etc.
 
+from datetime import datetime
+
 def generate_chart():
     # Carrega o histórico
     history = load_history().get("history", [])
@@ -33,10 +35,13 @@ def generate_chart():
     # Adiciona rótulos personalizados
     min_rating = min(ratings)
     max_rating = max(ratings)
+    
+    # Converte last_update para datetime se necessário
     last_update = timestamps[-1] if timestamps else datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
+    # Não é mais necessário converter para datetime, já que last_update já é uma string formatada
     return f"""
-Última atualização: {datetime.fromtimestamp(last_update).strftime('%Y-%m-%d %H:%M:%S')}
+Última atualização: {last_update}
 Rating mínimo: {min_rating}
 Rating máximo: {max_rating}
 
