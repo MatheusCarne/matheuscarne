@@ -35,7 +35,15 @@ def load_history():
     """Carrega o histórico de ratings do arquivo JSON"""
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, "r") as f:
-            return json.load(f)
+            try:
+                data = json.load(f)
+                # Se o arquivo estiver vazio ou não contiver a chave "history", inicialize-a
+                if "history" not in data:
+                    data["history"] = []
+                return data
+            except json.JSONDecodeError:
+                print(f"Erro ao decodificar {HISTORY_FILE}, o arquivo pode estar vazio ou corrompido.")
+                return {"history": []}
     return {"history": []}
 
 def save_history(new_entry):
