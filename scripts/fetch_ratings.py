@@ -12,18 +12,21 @@ def get_current_rating():
     """Busca o rating atual da API do Chess.com"""
     try:
         url = f"https://api.chess.com/pub/player/{USERNAME}/stats"
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()  # Lança erro se status != 200
+        headers = {
+            "User-Agent": "Mozilla/5.0 (compatible; GitHubActionsBot/1.0)"
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
         
         data = response.json()
-        rating = data[f"chess_{RATING_TYPE}"]["last"]["rating"]
+        rating = data["stats"][RATING_TYPE]["last"]["rating"]
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         return {
             "rating": rating,
             "timestamp": timestamp
         }
-        
+
     except requests.exceptions.RequestException as e:
         print(f"Erro na API: {e}")
         return None
