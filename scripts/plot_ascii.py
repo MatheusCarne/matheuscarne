@@ -7,8 +7,8 @@ import os
 # Configurações
 USERNAME = "Matheus_Carne"  # 👈 Substitua pelo seu username
 RATING_TYPE = "rapid"       # "blitz", "bullet", etc.
-MAX_POINTS = 20            # Número máximo de ratings no gráfico
-COLOR = acp.green          # Cores disponíveis: green, blue, red, yellow, etc.
+MAX_POINTS = 20             # Número máximo de ratings no gráfico
+COLOR = acp.green           # Cores disponíveis: green, blue, red, yellow, etc.
 
 def generate_chart():
     # Carrega o histórico
@@ -39,3 +39,10 @@ def generate_chart():
     
     return f"""
 # ♟ Chess.com {RATING_TYPE.capitalize()} Rating - @{USERNAME}
+
+Última atualização: {datetime.fromtimestamp(last_update).strftime('%Y-%m-%d %H:%M:%S')}
+Rating mínimo: {min_rating}
+Rating máximo: {max_rating}
+
+{chart}
+"""
