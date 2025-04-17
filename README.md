@@ -1,7 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=<Matheus+Carneiro/>&size=64&height=100&width=1920&center=true)](https://git.io/typing-svg)
 
- ![Profile views](https://komarev.com/ghpvc/?username=MatheusCarne&color=blue)
-
+![Profile views](https://komarev.com/ghpvc/?username=MatheusCarne&color=blue)
 
 ### Sou um estudante de programação que ama técnologia! 
 
@@ -13,7 +12,7 @@
 - 🎓 Cursando Engenharia da Computação IFPB-CG;
 - 😎 Desenvolvo pequenos projetos utilizando apenas HTML, CSS e JavaScript;
 - 👨‍💻 Programo usando linguagens Python, C e C++;
-- 🧑‍💻 Tambêm já desenvolvi sites completos utilizando Wordpress;
+- � Tambêm já desenvolvi sites completos utilizando Wordpress;
 - ✍️ Além disso me mantenho sempre atualizado com cursos intensivos online;
 - 🤯 Gosto de resolver problemas complexos;
 - 😉 Estou procurando maneiras de me aperfeiçoar e aprender novas habilidades;
@@ -103,9 +102,9 @@
   
 </div>
 
-### ♟️ Meu rating no Chess.com
-
--  ![rapid](https://img.shields.io/badge/dynamic/json?label=Rapid&query=$.chess_rapid.last.rating&url=https://api.chess.com/pub/player/Matheus_Carne/stats)
-
+### ♟️ Meu Progresso no Chess.com
+<!-- CHESS_CHART_START -->
+<!-- O gráfico será atualizado automaticamente aqui -->
+<!-- CHESS_CHART_END -->
 
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
