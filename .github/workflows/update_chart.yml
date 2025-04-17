@@ -1,0 +1,51 @@
+name: Update Chess Rating Chart
+
+on:
+  schedule:
+    - cron: "0 12 * * *"  # Executa diariamente ao meio-dia (UTC)
+  workflow_dispatch:       # Permite acionar manualmente (em "Actions > Update Chess Rating Chart > Run workflow")
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # Permissão para atualizar o README.md
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Importante para o git commit funcionar
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate and update chart
+        run: |
+          # Executa o script e salva o gráfico em uma variável
+          CHART=$(python scripts/plot_ascii.py)
+
+          # Lê o README atual, preserva conteúdo acima e abaixo do marcador
+          README_CONTENT=$(cat README.md)
+          UPDATED_CONTENT=$(echo "$README_CONTENT" | awk -v chart="$CHART" '
+            BEGIN {RS="<!-- CHESS_CHART_START -->|<!-- CHESS_CHART_END -->"; ORS=""; i=0}
+            {if (++i == 1) print $0 "<!-- CHESS_CHART_START -->\n" chart "\n<!-- CHESS_CHART_END -->"; else print $0}
+          ')
+
+          # Escreve o novo conteúdo
+          echo "$UPDATED_CONTENT" > README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "📊 Auto-update chess rating chart [skip ci]"
+          git push
