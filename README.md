@@ -106,6 +106,8 @@
 <!-- CHESS_CHART_START -->
 
 <!-- CHESS_CHART_END -->
+
+
 <!-- O gráfico será atualizado automaticamente aqui -->
 
 
