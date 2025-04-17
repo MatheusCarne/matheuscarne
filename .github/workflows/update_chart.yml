@@ -3,19 +3,19 @@ name: Update Chess Rating Chart
 on:
   schedule:
     - cron: "0 12 * * *"  # Executa diariamente ao meio-dia (UTC)
-  workflow_dispatch:       # Permite acionar manualmente (em "Actions > Update Chess Rating Chart > Run workflow")
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write      # Permissão para atualizar o README.md
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Importante para o git commit funcionar
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,36 +27,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate and update chart
-        run: |
-          # Executa o script e salva o gráfico em uma variável
-          CHART=$(python scripts/plot_ascii.py)
-
-          # Lê o README atual, preserva conteúdo acima e abaixo do marcador
-          README_CONTENT=$(cat README.md)
-          UPDATED_CONTENT=$(echo "$README_CONTENT" | awk -v chart="$CHART" '
-            BEGIN {RS="<!-- CHESS_CHART_START -->|<!-- CHESS_CHART_END -->"; ORS=""; i=0}
-            {if (++i == 1) print $0 "<!-- CHESS_CHART_START -->\n" chart "\n<!-- CHESS_CHART_END -->"; else print $0}
-          ')
-
-          # Escreve o novo conteúdo
-          echo "$UPDATED_CONTENT" > README.md
-
-      - name: Garantir que ratings.json exista
+      - name: Ensure ratings.json exists
         run: |
           if [ ! -f scripts/ratings.json ]; then
             echo '{"history": []}' > scripts/ratings.json
           fi
-          
-      - name: Update ratings.json
+
+      - name: Fetch latest rating → update ratings.json
         run: |
-          # Executa o script de fetch de rating para atualizar o ratings.json
           python scripts/fetch_ratings.py
 
-      - name: Commit and push changes
+      - name: Generate ASCII chart and update README
+        run: |
+          CHART=$(python scripts/plot_ascii.py)
+
+          # Injeta o chart entre os marcadores
+          UPDATED=$(awk -v chart="$CHART" '
+            BEGIN { RS="<!-- CHESS_CHART_START -->|<!-- CHESS_CHART_END -->"; ORS=""; i=0 }
+            { if (++i==1) printf "%s<!-- CHESS_CHART_START -->\n%s\n<!-- CHESS_CHART_END -->", $0, chart;
+              else printf "%s", $0 }
+          ' README.md)
+
+          echo "$UPDATED" > README.md
+
+      - name: Commit & push changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md scripts/ratings.json  # Certifique-se de adicionar o ratings.json
-          git commit -m "📊 Auto-update chess rating chart and ratings.json [skip ci]"
+          git add scripts/ratings.json README.md
+          git commit -m "📊 Auto-update rating chart and data [skip ci]" || echo "Nothing to commit"
           git push
