@@ -106,6 +106,8 @@
 <!-- CHESS_CHART_START -->
 ⚠️ Nenhum dado de rating encontrado. Execute o workflow primeiro.
 <!-- CHESS_CHART_END -->
+⚠️ Nenhum dado de rating encontrado. Execute o workflow primeiro.
+
 
 
 
