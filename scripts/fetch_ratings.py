@@ -4,7 +4,8 @@ import json
 import os
 from datetime import datetime
 
-# Configurações\USERNAMER = "Matheus_Carne"
+# Configurações
+USERNAME = "Matheus_Carne"  # Substitua pelo seu username
 RATING_TYPE = "rapid"  # rapid, blitz ou bullet
 HISTORY_FILE = os.path.join(os.path.dirname(__file__), "ratings.json")
 
@@ -21,29 +22,24 @@ def get_current_rating():
         print(f"❌ Request failed: {e}")
         return None
 
-    # Tenta parsear JSON
     try:
         data = resp.json()
     except json.JSONDecodeError:
         print(f"❌ Response was not JSON: {resp.text[:200]!r}")
         return None
 
-    # A API retorna estatísticas no root com chaves como 'chess_rapid', 'chess_blitz'
     stats_key = f"chess_{RATING_TYPE}"
     node = data.get(stats_key)
     if not node or "last" not in node:
         print(f"❌ '{stats_key}' not found in response; available keys: {list(data.keys())}")
         return None
 
-    # Extrai rating e timestamp
     rating = node["last"].get("rating")
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"✅ API returned rating {rating} for {stats_key} at {timestamp}")
     return {"rating": rating, "timestamp": timestamp}
 
-
 def load_history():
-    """Carrega o histórico de ratings do arquivo JSON"""
     if os.path.exists(HISTORY_FILE):
         try:
             with open(HISTORY_FILE, "r") as f:
@@ -56,17 +52,13 @@ def load_history():
         return data
     return {"history": []}
 
-
 def save_history(entry):
-    """Salva um novo rating no histórico"""
     history = load_history()
     history["history"].append(entry)
-    # Mantém somente os últimos 30 registros
     history["history"] = history["history"][-30:]
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
     print(f"💾 Saved to {HISTORY_FILE}")
-
 
 if __name__ == "__main__":
     current = get_current_rating()
