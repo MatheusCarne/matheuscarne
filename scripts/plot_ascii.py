@@ -3,6 +3,7 @@ import json
 import os
 from datetime import datetime
 import asciichartpy
+import time
 
 HISTORY_FILE = os.path.join(os.path.dirname(__file__), "ratings.json")
 
@@ -18,31 +19,29 @@ def get_last_timestamp():
         data = json.load(f)
     if not data["history"]:
         return None
-    return data["history"][-1]["timestamp"]
+    timestamp = data["history"][-1]["timestamp"]
+    # Garantir formato correto (string -> datetime -> struct_time)
+    dt = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
+    return time.strftime("%a %b %d %H:%M:%S EDT %Y", dt.timetuple())
 
 def generate_chart():
     ratings = load_history()
     if not ratings:
         return "No data available."
 
-    chart = asciichartpy.plot(
-        ratings,
-        {
-            "height": 20,
-            "format": lambda x: f"{x:7.2f}",
-        }
-    )
+    config = {
+        "height": 20,
+        "format": lambda x: f"{x:7.2f}"
+    }
 
-    last_update = get_last_timestamp()
-    min_rating = min(ratings)
-    max_rating = max(ratings)
+    chart = asciichartpy.plot(ratings, config)
 
     output = (
         "```\n"
         "# ♟︎ Chess.com Ratings Chart #\n\n"
         "Rapid Rating\n"
         f"{chart}\n\n"
-        f"Chart last updated - {last_update}\n"
+        f"Chart last updated - {get_last_timestamp()}\n"
         "```"
     )
     return output
