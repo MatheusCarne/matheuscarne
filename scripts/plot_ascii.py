@@ -46,7 +46,6 @@ Rating mínimo: {min_rating}
 Rating máximo: {max_rating}
 
 {chart}
-<!-- CHESS_CHART_END -->
 ```"""
 
 if __name__ == "__main__":
