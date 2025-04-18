@@ -127,34 +127,8 @@ Rating máximo: 499
   443.00 ┤ ┤    │
   439.00 ┤ ┼────╯
   435.00 ┤ ┤
-<!-- CHESS_CHART_END -->
 ```
 <!-- CHESS_CHART_END -->
-```
-♟ Chess.com Rapid Rating - @Matheus_Carne
-Última atualização: 2025-04-18 13:32:14
-Rating mínimo: 435
-Rating máximo: 499
-
-  499.00 ┤ ┤    ╭─
-  495.00 ┤ ┤    │
-  491.00 ┤ ┤    │
-  487.00 ┤ ┤    │
-  483.00 ┤ ┤    │
-  479.00 ┤ ┤    │
-  475.00 ┤ ┤    │
-  471.00 ┤ ┤    │
-  467.00 ┤ ┤    │
-  463.00 ┤ ┤    │
-  459.00 ┤ ┤    │
-  455.00 ┤ ┤    │
-  451.00 ┤ ┤    │
-  447.00 ┤ ┤    │
-  443.00 ┤ ┤    │
-  439.00 ┤ ┼────╯
-  435.00 ┤ ┤
-```
-
 
 
 <img height="120" alt="Thanks for visiting me" width="100%" src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" />
