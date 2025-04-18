@@ -105,12 +105,35 @@
 ### ♟️ Meu Progresso no Chess.com
 <!-- CHESS_CHART_START -->
 
+Última atualização: 2025-04-18 12:21:18
+Rating mínimo: 435
+Rating máximo: 499
+
+  499.00 ┤ ┤    ╭
+  495.00 ┤ ┤    │
+  491.00 ┤ ┤    │
+  487.00 ┤ ┤    │
+  483.00 ┤ ┤    │
+  479.00 ┤ ┤    │
+  475.00 ┤ ┤    │
+  471.00 ┤ ┤    │
+  467.00 ┤ ┤    │
+  463.00 ┤ ┤    │
+  459.00 ┤ ┤    │
+  455.00 ┤ ┤    │
+  451.00 ┤ ┤    │
+  447.00 ┤ ┤    │
+  443.00 ┤ ┤    │
+  439.00 ┤ ┼────╯
+  435.00 ┤ ┤
+<!-- CHESS_CHART_END -->
+
 Última atualização: 2025-04-17 15:20:20
 Rating mínimo: 435
 Rating máximo: 435
 
   435.00 ┤ ┼────
-<!-- CHESS_CHART_END -->
+
 
 
 
