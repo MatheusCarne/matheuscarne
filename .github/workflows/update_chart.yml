@@ -1,3 +1,4 @@
+
 name: Update Chess Rating Chart
 
 on:
@@ -37,26 +38,18 @@ jobs:
         run: |
           python scripts/fetch_ratings.py
 
-            - name: Generate ASCII chart and update README
-              run: |
-                # Gera o gráfico ASCII
-                CHART=$(python scripts/plot_ascii.py)
+      - name: Generate ASCII chart and update README
+        run: |
+          CHART=$(python scripts/plot_ascii.py)
 
-                # Substitui o conteúdo entre os marcadores <!-- CHESS_CHART_START --> e <!-- CHESS_CHART_END -->, removendo qualquer duplicação
-                UPDATED=$(awk -v chart="$CHART" '
-                  BEGIN { RS="<!-- CHESS_CHART_START -->|<!-- CHESS_CHART_END -->"; ORS=""; i=0 }
-                  {
-                    if (++i == 1) {
-                      # Substitui a parte entre os marcadores
-                      printf "%s<!-- CHESS_CHART_START -->\n%s\n<!-- CHESS_CHART_END -->", $0, chart;
-                    } else {
-                      printf "%s", $0;
-                    }
-                  }
-                ' README.md)
+          # Injeta o chart entre os marcadores
+          UPDATED=$(awk -v chart="$CHART" '
+            BEGIN { RS="<!-- CHESS_CHART_START -->|<!-- CHESS_CHART_END -->"; ORS=""; i=0 }
+            { if (++i==1) printf "%s<!-- CHESS_CHART_START -->\n%s\n<!-- CHESS_CHART_END -->", $0, chart;
+              else printf "%s", $0 }
+          ' README.md)
 
-                # Salva as alterações no README
-                echo "$UPDATED" > README.md
+          echo "$UPDATED" > README.md
 
       - name: Commit & push changes
         run: |
